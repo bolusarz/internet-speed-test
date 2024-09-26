@@ -11,7 +11,7 @@ export const useCloudfare = () => {
         speedtest.onResultsChange = ({type}) => {
             if (type === "download") {
                 setNetInfo({
-                    speed: speedtest.results.getSummary().download,
+                    speed: speedtest.results.getSummary().download || 0,
                     type: ""
                 })
             }

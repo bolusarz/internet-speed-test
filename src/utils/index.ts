@@ -1,6 +1,5 @@
 
-export const formatSpeed = (speed) => {
-    console.log(speed)
+export const formatSpeed = (speed: number) => {
     if (speed >= 1024 * 1024) {
         return `${(speed/(1024*1024)).toFixed(2)}Mbps`
     } else if (speed >= 1024) {
