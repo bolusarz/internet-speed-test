@@ -7,19 +7,21 @@ export const useNavigator = () => {
     useEffect(() => {
 
         setNetInfo({
-            speed: navigator.connection?.downlink,
-            type: navigator.connection?.effectiveType
+            speed: navigator["connection"]?.downlink,
+            type: navigator["connection"]?.effectiveType
         })
 
-        navigator.connection.onchange = () => {
+        navigator["connection"].onchange = () => {
             setNetInfo({
-                speed: navigator.connection?.downlink,
-                type: navigator.connection?.effectiveType
+                speed: navigator["connection"]?.downlink,
+                type: navigator["connection"]?.effectiveType
             })
         }
 
         return () => {
-            navigator.connection.onchange = undefined
+            if (navigator["connection"]) {
+                navigator["connection"].onchange = undefined
+            }
         }
 
     }, []);
